@@ -3,23 +3,27 @@ import { arrayRequired } from '@lemoncode/fonk-array-required-validator';
 
 const validationSchema = {
   field: {
-    myField: [arrayRequired.validator],
+    myField: [
+      {
+        validator: arrayRequired.validator,
+        customArgs: { minLenght: 1, maxLength: 5 },
+      },
+    ],
   },
 };
 
 const formValidation = createFormValidation(validationSchema);
 
-// TODO: Update example values 'test' and/or 10 if needed
 Promise.all([
-  formValidation.validateField('myField', 'test'),
-  formValidation.validateField('myField', 10),
+  formValidation.validateField('myField', [1, 2, 3, 4, 5, 6]),
+  formValidation.validateField('myField', [1, 2, 3]),
 ]).then(([failedResult, succeededResult]) => {
   document.getElementById('app').innerHTML = `
 <div style="flex-grow: 1;margin-left:2rem;">
   <h2>Example with failed result:</h2>
 
 <pre>
-  formValidation.validateField('myField', 'test')
+  formValidation.validateField('myField', [1, 2, 3, 4, 5, 6])
 </pre>
 
   <h3>Result: </h3>
@@ -32,7 +36,7 @@ ${JSON.stringify(failedResult, null, 2)}
   <h2>Example with succeeded result:</h2>
 
 <pre>
-formValidation.validateField('myField', 10)
+formValidation.validateField('myField', [1, 2, 3])
 </pre>
 
   <h3>Result: </h3>

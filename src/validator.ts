@@ -3,27 +3,46 @@ import {
   parseMessageWithCustomArgs,
 } from '@lemoncode/fonk';
 
-// TODO: Add validator type
-const VALIDATOR_TYPE = '';
+const VALIDATOR_TYPE = 'ARRAY_REQUIRED';
 
-// TODO: Add default message
-let defaultMessage = '';
+let defaultMessage = 'The value must be an array';
 export const setErrorMessage = message => (defaultMessage = message);
+
+const defaultCustomArgs: CustomValidatorArgs = {
+  minLength: 0,
+};
+
+const validateType = value => Array.isArray(value);
+
+const validate = (value, args: CustomValidatorArgs) =>
+  value.length >= args.minLength &&
+  (args.maxLength ? value.length <= args.maxLength : true);
 
 const isDefined = value => value !== void 0 && value !== null && value !== '';
 
-export const validator: FieldValidationFunctionSync = fieldValidatorArgs => {
+interface CustomValidatorArgs {
+  minLength?: number;
+  maxLength?: number;
+}
+
+export const validator: FieldValidationFunctionSync<
+  CustomValidatorArgs
+> = fieldValidatorArgs => {
   const { value, message = defaultMessage, customArgs } = fieldValidatorArgs;
 
-  // TODO: Add validator
-  const succeeded = !isDefined(value) || ...;
+  const args: CustomValidatorArgs = {
+    ...defaultCustomArgs,
+    ...customArgs,
+  };
+
+  const succeeded =
+    !isDefined(value) || (validateType(value) && validate(value, args));
 
   return {
     succeeded,
     message: succeeded
       ? ''
-      : // TODO: Use if it has custom args
-        parseMessageWithCustomArgs(
+      : parseMessageWithCustomArgs(
           (message as string) || defaultMessage,
           customArgs
         ),
