@@ -1,6 +1,5 @@
 import { ValidationSchema, createFormValidation } from '@lemoncode/fonk';
-// import { arrayRequired } from '@lemoncode/fonk-array-required-validator';
-import { arrayRequired } from "../../../typings";
+import { arrayRequired } from '@lemoncode/fonk-array-required-validator';
 
 const validationSchema: ValidationSchema = {
   field: {
