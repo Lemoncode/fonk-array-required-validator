@@ -1,6 +1,6 @@
 # fonk-array-required-validator
 
-[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-array-required-validator/master/ci?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-array-required-validator/tree/master)
+[![CircleCI](https://badgen.net/github/status/Lemoncode/fonk-array-required-validator/master?icon=circleci&label=circleci)](https://circleci.com/gh/Lemoncode/fonk-array-required-validator/tree/master)
 [![NPM Version](https://badgen.net/npm/v/@lemoncode/fonk-array-required-validator?icon=npm&label=npm)](https://www.npmjs.com/package/@lemoncode/fonk-array-required-validator)
 [![bundle-size](https://badgen.net/bundlephobia/min/@lemoncode/fonk-array-required-validator)](https://bundlephobia.com/result?p=@lemoncode/fonk-array-required-validator)
 
