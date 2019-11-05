@@ -32,7 +32,9 @@ We can add a arrayRequired validation to the myFormValues
 import { arrayRequired } from '@lemoncode/fonk-array-required-validator';
 
 const validationSchema = {
-  sizes: [arrayRequired.validator],
+  field: {
+    sizes: [arrayRequired.validator],
+  },
 };
 ```
 
@@ -41,12 +43,14 @@ We must specify the minimum number (1 by default) and optionally the maximum num
 ```javascript
 import { arrayRequired } from '@lemoncode/fonk-array-required-validator';
 const validationSchema = {
-  sizes: [
-    {
-      validator: arrayRequired.validator,
-      customArgs: { minLength: 1, maxLength: 10 },
-    },
-  ],
+  field: {
+    sizes: [
+      {
+        validator: arrayRequired.validator,
+        customArgs: { minLength: 1, maxLength: 10 },
+      },
+    ],
+  },
 };
 ```
 
@@ -66,12 +70,14 @@ arrayRequired.setErrorMessage('El campo debe de ser una lista');
 import { arrayRequired } from '@lemoncode/fonk-array-required-validator';
 
 const validationSchema = {
-  price: [
-    {
-      validator: arrayRequired.validator,
-      message: 'Error message only updated for the validation schema',
-    },
-  ],
+  field: {
+    price: [
+      {
+        validator: arrayRequired.validator,
+        message: 'Error message only updated for the validation schema',
+      },
+    ],
+  },
 };
 ```
 
