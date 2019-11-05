@@ -1,7 +1,7 @@
 import { validator, setErrorMessage } from './validator';
 
 const VALIDATOR_TYPE = 'ARRAY_REQUIRED';
-const DEFAULT_MESSAGE = 'The value must be an array';
+const DEFAULT_MESSAGE = 'The list should have items';
 
 describe('fonk-array-required-validator specs', () => {
   it('should return succeeded validation when it feeds value equals undefined', () => {
@@ -161,8 +161,8 @@ describe('fonk-array-required-validator specs', () => {
 
     // Assert
     expect(result).toEqual({
-      succeeded: true,
-      message: '',
+      succeeded: false,
+      message: DEFAULT_MESSAGE,
       type: VALIDATOR_TYPE,
     });
   });

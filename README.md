@@ -6,7 +6,7 @@
 
 This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to:
 
-- Validate if a field of a form is an array
+- Validate if an array field of a form has items
 
 How to add it to an existing form validation schema:
 
@@ -30,7 +30,7 @@ const validationSchema = {
 };
 ```
 
-We can specify the minimum and/or maximum number of items allowed:
+We must specify the minimum number (1 by default) and optionally the maximum number of items allowed:
 
 ```javascript
 import { arrayRequired } from '@lemoncode/fonk-array-required-validator';

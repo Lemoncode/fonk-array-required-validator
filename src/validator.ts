@@ -5,11 +5,11 @@ import {
 
 const VALIDATOR_TYPE = 'ARRAY_REQUIRED';
 
-let defaultMessage = 'The value must be an array';
+let defaultMessage = 'The list should have items';
 export const setErrorMessage = message => (defaultMessage = message);
 
 const defaultCustomArgs: CustomValidatorArgs = {
-  minLength: 0,
+  minLength: 1,
 };
 
 const validateType = value => Array.isArray(value);
