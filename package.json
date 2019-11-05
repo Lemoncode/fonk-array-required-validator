@@ -1,6 +1,6 @@
 {
   "name": "@lemoncode/fonk-array-required-validator",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to validate if an array field of a form has items",
   "main": "dist/@lemoncode/fonk-array-required-validator.cjs.js",
   "module": "dist/@lemoncode/fonk-array-required-validator.esm.js",
