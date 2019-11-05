@@ -6,9 +6,7 @@
 
 This is a [fonk](https://github.com/Lemoncode/fonk) microlibrary that brings validation capabilities to:
 
-// TODO: Update description and example.
-
-- Validate if a field of a form ....
+- Validate if an array field of a form has items
 
 How to install it:
 
@@ -24,6 +22,7 @@ We have the following form model:
 const myFormValues = {
   product : 'shoes',
   price: 20,
+  sizes: [36, 38, 41]
 }
 ```
 
@@ -33,7 +32,21 @@ We can add a arrayRequired validation to the myFormValues
 import { arrayRequired } from '@lemoncode/fonk-array-required-validator';
 
 const validationSchema = {
-  price: [arrayRequired.validator],
+  sizes: [arrayRequired.validator],
+};
+```
+
+We must specify the minimum number (1 by default) and optionally the maximum number of items allowed:
+
+```javascript
+import { arrayRequired } from '@lemoncode/fonk-array-required-validator';
+const validationSchema = {
+  sizes: [
+    {
+      validator: arrayRequired.validator,
+      customArgs: { minLength: 1, maxLength: 10 },
+    },
+  ],
 };
 ```
 
@@ -44,7 +57,7 @@ You can customize the error message displayed in two ways:
 ```javascript
 import { arrayRequired } from '@lemoncode/fonk-array-required-validator';
 
-arrayRequired.setErrorMessage('El campo debe de ser numérico');
+arrayRequired.setErrorMessage('El campo debe de ser una lista');
 ```
 
 - Locally just override the error message for this validationSchema:
